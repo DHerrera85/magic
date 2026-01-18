@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Magic Kids LIVE (Twitch Edition) — Demo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=Work+Sans:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/tw.build.css">
+
+  <style>
+    .stars::before{
+      content:"";position:absolute;inset:0;pointer-events:none;background-image:
+      radial-gradient(2px 2px at 20% 10%, rgba(255,255,255,.18), transparent 40%),
+      radial-gradient(1.5px 1.5px at 62% 26%, rgba(255,255,255,.12), transparent 40%),
+      radial-gradient(1.5px 1.5px at 80% 70%, rgba(255,255,255,.10), transparent 40%),
+      radial-gradient(2px 2px at 35% 82%, rgba(255,255,255,.14), transparent 40%);
+      background-repeat:no-repeat;filter: blur(.35px);
+    }
+    .shell{max-width:440px;margin:0 auto;min-height:100vh}
+    @media (min-width: 960px){
+      body{display:grid;place-items:center;padding:20px}
+      .shell{border-radius:26px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.10)}
+    }
+    .no-scrollbar::-webkit-scrollbar{display:none}
+    .no-scrollbar{scrollbar-width:none}
+  </style>
+</head>
+
+<body class="font-display text-white bg-[radial-gradient(1200px_600px_at_10%_-10%,#2B0A6B_0%,transparent_60%),radial-gradient(1200px_800px_at_110%_10%,#12042F_0%,transparent_60%),linear-gradient(120deg,#05020E_0%,#07041A_100%)]">
+  <div class="fixed inset-0 -z-10 opacity-60 bg-gradient-to-tr from-fuchsia-600/20 via-violet-600/12 to-cyan-400/10 bg-[length:200%_200%] animate-gradientMove"></div>
+
+  <div class="shell bg-mkbg relative">
+    <header class="relative stars">
+      <div class="sticky top-0 z-20 backdrop-blur bg-black/20 border-b border-white/10">
+        <div class="px-4 py-3 flex items-center gap-3">
+          <div class="h-10 w-10 rounded-2xl bg-gradient-to-br from-mkvio to-mkpink grid place-items-center shadow-glow">
+            <span class="font-extrabold">MK</span>
+          </div>
+
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <h1 class="font-extrabold tracking-wide text-base truncate">Magic Kids LIVE</h1>
+              <span class="inline-flex items-center gap-2 rounded-full bg-red-600/90 px-2.5 py-1 text-[11px] font-extrabold">
+                <span class="inline-block h-2 w-2 rounded-full bg-white animate-pingSoft"></span> EN VIVO
+              </span>
+            </div>
+            <p class="text-xs text-white/70 truncate">Twitch Edition • 1998–2001 vibes</p>
+          </div>
+
+          <div class="ml-auto flex items-center gap-2">
+            <button class="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 active:scale-[.98] transition grid place-items-center" onclick="toggleChat()" title="Chat">💬</button>
+            <button class="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 active:scale-[.98] transition grid place-items-center" onclick="toast('Notificaciones (demo)')" title="Notificaciones">🔔</button>
+          </div>
+        </div>
+
+        <div class="px-4 pb-3">
+          <div class="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
+            <span class="opacity-70">🔎</span>
+            <input class="w-full bg-transparent outline-none text-sm placeholder:text-white/45"
+                   placeholder="Buscar: Hugo, Nivel X, anime, clips…" />
+            <span class="text-[11px] font-bold text-white/60">CTRL K</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="px-4 pb-24 pt-4 space-y-5">
+      <section class="rounded-3xl border border-white/10 bg-gradient-to-b from-mkcard/90 to-black/40 overflow-hidden shadow-[0_20px_70px_rgba(110,44,255,.18)]">
+        <div class="p-4">
+          <p class="text-[11px] tracking-[.25em] uppercase text-mkcyan/90 font-bold">Canal principal</p>
+          <h2 class="mt-1 font-extrabold text-xl leading-tight">Nivel X: Especial PS1 / Dreamcast</h2>
+          <div class="mt-2 flex flex-wrap items-center gap-2 text-xs text-white/75">
+            <span class="rounded-full bg-white/10 px-3 py-1">🎮 Gaming</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">👀 12.4K</span>
+            <span class="rounded-full bg-white/10 px-3 py-1">💾 Replays</span>
+            <span class="rounded-full bg-mkvio/30 px-3 py-1 border border-mkvio/40">#VioletaMagic</span>
+          </div>
+        </div>
+
+        <div class="relative aspect-[16/9] bg-[radial-gradient(900px_260px_at_50%_-10%,rgba(255,57,200,.35),transparent_60%),linear-gradient(135deg,rgba(110,44,255,.28),rgba(56,244,242,.10))]">
+          <div class="absolute inset-0 grid place-items-center">
+            <button class="group rounded-2xl bg-black/35 hover:bg-black/45 border border-white/15 px-5 py-3 font-extrabold shadow-glow active:scale-[.98] transition"
+                    onclick="toast('Play (demo)')">
+              ▶ Reproducir
+              <span class="ml-2 text-white/60 text-xs group-hover:text-white/80 transition">(demo)</span>
+            </button>
+          </div>
+
+          <div class="absolute top-3 left-3 flex items-center gap-2">
+            <span class="rounded-full bg-red-600/90 px-3 py-1 text-[11px] font-extrabold">LIVE</span>
+            <span class="rounded-full bg-black/50 px-3 py-1 text-[11px] font-bold border border-white/10">HD</span>
+          </div>
+
+          <div class="absolute bottom-3 left-3 right-3 flex items-center gap-3">
+            <div class="flex-1 h-2 rounded-full bg-white/15 overflow-hidden">
+              <div class="h-full w-[38%] bg-gradient-to-r from-mkvio to-mkpink"></div>
+            </div>
+            <span class="text-[11px] text-white/70 font-bold">00:38</span>
+          </div>
+        </div>
+
+        <div class="p-4 flex gap-3">
+          <button class="flex-1 rounded-2xl bg-gradient-to-r from-mkvio to-mkpink px-4 py-3 font-extrabold shadow-glow active:scale-[.98] transition"
+                  onclick="toast('Seguir (demo)')">Seguir</button>
+          <button class="w-14 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 active:scale-[.98] transition"
+                  onclick="toast('Compartir (demo)')">↗</button>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex items-end justify-between">
+          <h3 class="font-extrabold text-lg">Programas</h3>
+          <button class="text-xs font-bold text-white/70 hover:text-white" onclick="toast('Ver todo (demo)')">Ver todo</button>
+        </div>
+
+        <div class="mt-3 flex gap-3 overflow-x-auto no-scrollbar pb-1">
+          <button class="shrink-0 group" onclick="toast('Hugo (demo)')">
+            <div class="h-16 w-16 rounded-full p-[3px] bg-gradient-to-br from-mkvio to-mkpink shadow-glow">
+              <div class="h-full w-full rounded-full bg-black/40 border border-white/10 grid place-items-center">
+                <span class="text-xl">🕹️</span>
+              </div>
+            </div>
+            <p class="mt-1 text-[11px] text-center text-white/75 font-bold group-hover:text-white">Hugo</p>
+          </button>
+
+          <button class="shrink-0 group" onclick="toast('Nivel X (demo)')">
+            <div class="h-16 w-16 rounded-full p-[3px] bg-gradient-to-br from-mkvio2 to-mkcyan shadow-glow">
+              <div class="h-full w-full rounded-full bg-black/40 border border-white/10 grid place-items-center">
+                <span class="text-xl">🎮</span>
+              </div>
+            </div>
+            <p class="mt-1 text-[11px] text-center text-white/75 font-bold group-hover:text-white">Nivel X</p>
+          </button>
+
+          <button class="shrink-0 group" onclick="toast('Kito Pizzas (demo)')">
+            <div class="h-16 w-16 rounded-full p-[3px] bg-gradient-to-br from-mkyel to-mkpink shadow-glow">
+              <div class="h-full w-full rounded-full bg-black/40 border border-white/10 grid place-items-center">
+                <span class="text-xl">🍕</span>
+              </div>
+            </div>
+            <p class="mt-1 text-[11px] text-center text-white/75 font-bold group-hover:text-white">Kito</p>
+          </button>
+
+          <button class="shrink-0 group" onclick="toast('Zona Virtual (demo)')">
+            <div class="h-16 w-16 rounded-full p-[3px] bg-gradient-to-br from-mkcyan to-mkvio shadow-glow">
+              <div class="h-full w-full rounded-full bg-black/40 border border-white/10 grid place-items-center">
+                <span class="text-xl">💾</span>
+              </div>
+            </div>
+            <p class="mt-1 text-[11px] text-center text-white/75 font-bold group-hover:text-white">Zona</p>
+          </button>
+
+          <button class="shrink-0 group" onclick="toast('Anime Night (demo)')">
+            <div class="h-16 w-16 rounded-full p-[3px] bg-gradient-to-br from-mkpink to-mkvio shadow-glow">
+              <div class="h-full w-full rounded-full bg-black/40 border border-white/10 grid place-items-center">
+                <span class="text-xl">🌙</span>
+              </div>
+            </div>
+            <p class="mt-1 text-[11px] text-center text-white/75 font-bold group-hover:text-white">Anime</p>
+          </button>
+        </div>
+      </section>
+
+      <section class="rounded-3xl border border-white/10 bg-white/5 overflow-hidden">
+        <div class="p-4 flex items-center justify-between">
+          <div>
+            <p class="text-[11px] tracking-[.25em] uppercase text-white/70 font-bold">Programación</p>
+            <h3 class="mt-1 font-extrabold text-lg">Horarios (demo)</h3>
+          </div>
+          <button class="rounded-2xl border border-white/10 bg-black/20 px-3 py-2 text-xs font-extrabold hover:bg-black/30 active:scale-[.98] transition"
+                  onclick="toast('Cambiar día (demo)')">Hoy ▾</button>
+        </div>
+
+        <ol class="divide-y divide-white/10">
+          <li class="p-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+            <div class="flex items-center gap-3">
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkvio to-mkpink grid place-items-center border border-white/10">🕵️</div>
+              <div class="min-w-0">
+                <p class="font-extrabold text-sm truncate">Detective Conan</p>
+                <p class="text-xs text-white/60 truncate">Anime Block</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="text-mkyel font-extrabold">16:00</p>
+              <p class="text-[11px] text-white/55 font-bold">VS</p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+              <div class="min-w-0 text-right">
+                <p class="font-extrabold text-sm truncate">ReBoot</p>
+                <p class="text-xs text-white/60 truncate">Toon / Sci‑Fi</p>
+              </div>
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkcyan to-mkvio grid place-items-center border border-white/10">🤖</div>
+            </div>
+          </li>
+
+          <li class="p-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3 bg-black/10">
+            <div class="flex items-center gap-3">
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkyel to-mkpink grid place-items-center border border-white/10">📞</div>
+              <div class="min-w-0">
+                <p class="font-extrabold text-sm truncate">A Jugar con Hugo</p>
+                <p class="text-xs text-white/60 truncate">Interacción en vivo</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="text-mkyel font-extrabold">17:00</p>
+              <p class="text-[11px] text-white/55 font-bold">VS</p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+              <div class="min-w-0 text-right">
+                <p class="font-extrabold text-sm truncate">Slayers</p>
+                <p class="text-xs text-white/60 truncate">Anime Night</p>
+              </div>
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkvio2 to-mkpink grid place-items-center border border-white/10">⚔️</div>
+            </div>
+          </li>
+
+          <li class="p-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+            <div class="flex items-center gap-3">
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkcyan to-mkvio grid place-items-center border border-white/10">🐉</div>
+              <div class="min-w-0">
+                <p class="font-extrabold text-sm truncate">Dragon Ball GT</p>
+                <p class="text-xs text-white/60 truncate">Shonen</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="text-mkyel font-extrabold">18:00</p>
+              <p class="text-[11px] text-white/55 font-bold">VS</p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+              <div class="min-w-0 text-right">
+                <p class="font-extrabold text-sm truncate">Slam Dunk</p>
+                <p class="text-xs text-white/60 truncate">Deportes</p>
+              </div>
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkyel to-mkvio2 grid place-items-center border border-white/10">🏀</div>
+            </div>
+          </li>
+
+          <li class="p-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3 bg-black/10">
+            <div class="flex items-center gap-3">
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkvio to-mkcyan grid place-items-center border border-white/10">🧑‍💻</div>
+              <div class="min-w-0">
+                <p class="font-extrabold text-sm truncate">Zona Virtual</p>
+                <p class="text-xs text-white/60 truncate">Tech / Web 2000</p>
+              </div>
+            </div>
+            <div class="text-center">
+              <p class="text-mkyel font-extrabold">19:00</p>
+              <p class="text-[11px] text-white/55 font-bold">VS</p>
+            </div>
+            <div class="flex items-center justify-end gap-3">
+              <div class="min-w-0 text-right">
+                <p class="font-extrabold text-sm truncate">Nivel X</p>
+                <p class="text-xs text-white/60 truncate">Gaming</p>
+              </div>
+              <div class="h-11 w-11 rounded-2xl bg-gradient-to-br from-mkvio2 to-mkpink grid place-items-center border border-white/10">🎮</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="p-4">
+          <button class="w-full rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 active:scale-[.98] transition px-4 py-3 font-extrabold"
+                  onclick="toast('Abrir horarios.html (demo)')">Ver grilla completa</button>
+        </div>
+      </section>
+
+      <section>
+        <div class="flex items-end justify-between">
+          <h3 class="font-extrabold text-lg">Shorts</h3>
+          <button class="text-xs font-bold text-white/70 hover:text-white" onclick="toast('Ver todos (demo)')">Ver todos</button>
+        </div>
+        <div class="mt-3 flex gap-3 overflow-x-auto no-scrollbar pb-1">
+          <button class="shrink-0 w-36 rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-black/30 overflow-hidden active:scale-[.99] transition" onclick="toast('Short 1 (demo)')">
+            <div class="aspect-[9/16] grid place-items-center text-3xl bg-[radial-gradient(500px_200px_at_50%_-10%,rgba(110,44,255,.38),transparent_60%)]">📼</div>
+            <div class="p-3">
+              <p class="font-extrabold text-sm leading-tight">Hugo: llamada épica</p>
+              <p class="text-xs text-white/60 mt-1">0:14 • Replay</p>
+            </div>
+          </button>
+          <button class="shrink-0 w-36 rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-black/30 overflow-hidden active:scale-[.99] transition" onclick="toast('Short 2 (demo)')">
+            <div class="aspect-[9/16] grid place-items-center text-3xl bg-[radial-gradient(500px_200px_at_50%_-10%,rgba(255,57,200,.35),transparent_60%)]">✨</div>
+            <div class="p-3">
+              <p class="font-extrabold text-sm leading-tight">Promo Anime Night</p>
+              <p class="text-xs text-white/60 mt-1">0:22 • Clip</p>
+            </div>
+          </button>
+          <button class="shrink-0 w-36 rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-black/30 overflow-hidden active:scale-[.99] transition" onclick="toast('Short 3 (demo)')">
+            <div class="aspect-[9/16] grid place-items-center text-3xl bg-[radial-gradient(500px_200px_at_50%_-10%,rgba(56,244,242,.26),transparent_60%)]">🍕</div>
+            <div class="p-3">
+              <p class="font-extrabold text-sm leading-tight">Kito: receta turbo</p>
+              <p class="text-xs text-white/60 mt-1">0:18 • Clip</p>
+            </div>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 z-30">
+      <div class="shell mx-auto">
+        <div class="border-t border-white/10 bg-black/35 backdrop-blur px-4 py-3">
+          <div class="grid grid-cols-4 gap-2 text-center text-[11px] font-extrabold">
+            <button class="rounded-2xl py-2 bg-white/10" onclick="toast('Home')">🏠<div class="mt-1 text-white/80">Home</div></button>
+            <button class="rounded-2xl py-2 hover:bg-white/10" onclick="toast('Horarios')">🗓️<div class="mt-1 text-white/70">Horarios</div></button>
+            <button class="rounded-2xl py-2 hover:bg-white/10" onclick="toggleChat()">💬<div class="mt-1 text-white/70">Chat</div></button>
+            <button class="rounded-2xl py-2 hover:bg-white/10" onclick="toast('Perfil')">👤<div class="mt-1 text-white/70">Perfil</div></button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <aside id="chat" class="fixed inset-y-0 right-0 w-[86%] max-w-[360px] translate-x-full transition-transform duration-200 z-40">
+      <div class="h-full bg-[#07031a] border-l border-white/10 shadow-[0_30px_90px_rgba(0,0,0,.6)] flex flex-col">
+        <div class="p-4 border-b border-white/10 flex items-center justify-between">
+          <div>
+            <p class="text-[11px] tracking-[.25em] uppercase text-white/70 font-bold">Chat</p>
+            <p class="font-extrabold">#magickids-live</p>
+          </div>
+          <button class="h-10 w-10 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 active:scale-[.98] transition" onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="p-4 space-y-3 overflow-auto">
+          <div class="text-sm"><span class="text-mkcyan font-extrabold">cyberNerd:</span> ¿Hoy hay Slayers? 🔥</div>
+          <div class="text-sm"><span class="text-mkpink font-extrabold">hugoFan:</span> Llamen al 0800 yaaa 📞</div>
+          <div class="text-sm"><span class="text-mkyel font-extrabold">retroPS1:</span> Nivel X hablando de Dreamcast, cine 🚀</div>
+          <div class="text-sm"><span class="text-mkvio2 font-extrabold">animeNight:</span> Voto Anime Night 🌙</div>
+          <div class="text-xs text-white/55 pt-2">*Mensajes fake (demo). Luego lo conectamos con JSON/localStorage.</div>
+        </div>
+
+        <div class="mt-auto p-4 border-t border-white/10">
+          <div class="flex gap-2">
+            <input class="flex-1 rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-sm outline-none placeholder:text-white/40"
+                   placeholder="Escribir mensaje…" />
+            <button class="rounded-2xl bg-gradient-to-r from-mkvio to-mkpink px-4 py-2 font-extrabold shadow-glow active:scale-[.98] transition"
+                    onclick="toast('Enviar (demo)')">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div id="toast" class="fixed left-1/2 -translate-x-1/2 bottom-24 px-4 py-2 rounded-full bg-black/80 border border-white/10 text-xs font-extrabold opacity-0 transition-opacity z-50"></div>
+  </div>
+
+  <script>
+    function toggleChat(){
+      const el = document.getElementById('chat');
+      const open = el.classList.contains('translate-x-0');
+      el.classList.toggle('translate-x-0', !open);
+      el.classList.toggle('translate-x-full', open);
+    }
+    let toastT;
+    function toast(msg){
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.opacity = '1';
+      clearTimeout(toastT);
+      toastT = setTimeout(()=> t.style.opacity = '0', 1200);
+    }
+  </script>
+</body>
+</html>
