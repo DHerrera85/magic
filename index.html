@@ -89,11 +89,9 @@
 
     @keyframes starDriftMobile {
       0%, 100% { transform: translate(0, 0); }
-      20% { transform: translate(18px, 12px); }
-      40% { transform: translate(-15px, 10px); }
-      60% { transform: translate(12px, -18px); }
-      80% { transform: translate(-10px, -12px); }
-    }
+      25% { transform: translate(5px, 3px); }
+      50% { transform: translate(-3px, 2px); }
+      75% { transform: translate(2px, -5px); }
     }
 
     @keyframes starDriftDesktop {
@@ -104,12 +102,12 @@
     }
 
     body::before {
-      animation: starDriftMobile 6s cubic-bezier(0.77,0,0.18,1) infinite;
+      animation: starDriftMobile 12s ease-in-out infinite;
     }
 
     @media (min-width: 768px) {
       body::before {
-        animation: starDriftDesktop 12s ease-in-out infinite;
+        animation: starDriftDesktop 12s ease-in-out infinite !important;
       }
     }
 
